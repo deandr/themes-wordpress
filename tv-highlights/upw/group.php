@@ -24,7 +24,7 @@
 
         <?php $current_post = ($post->ID == $current_post_id && is_single()) ? 'active' : ''; ?>
         <div class="event-item">
-        <?php 
+        <?php
           $current_date = get_the_time();
           if ($current_date != $previous_date){
           //  echo '<div class="date-block">';
@@ -35,7 +35,7 @@
           }
           $previous_date = $current_date
         ?>
-    
+
         <article <?php post_class($current_post); ?>>
           <div class="post-thumb">
             <?php if (current_theme_supports('post-thumbnails') && $instance['show_thumbnail'] && has_post_thumbnail()) : ?>
@@ -86,11 +86,17 @@
                 </h4>
               <?php endif; ?>
             </header>
+            <?php
+                print format_tv_date($post->start);
+                if ($post->start['day'] != $post->end['day']){
+                    echo ' - ' . format_tv_date($post->end);
+                }
+            ?>
+
             <?php print get_post_meta($post_id, 'location'); ?>
 
             <?php if ($instance['show_excerpt']) : ?>
-              <div class="entry-summary">
-                <label class="excerpt-label">Descrição: </label>
+              <div class="entry-summary">                
                 <p class="excerpt-content">
                   <?php echo get_the_excerpt(); ?>
                   <?php if ($instance['show_readmore']) : ?>
