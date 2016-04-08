@@ -60,18 +60,18 @@ $(document).ready(function() {
 			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
 		</hgroup>
 		<div class="right-block">
-		<?php 
+		<?php
             echo '<div class="date-block">';
             echo '<div class="pub-wd">' . current_time('l') . '</div>';
             echo '<div class="pub-d">' . current_time('d') . '</div>';
             echo '<div class="pub-m">' . current_time('M') . '</div>';
             echo '<div class="time">' . current_time('G:i') . '</div>';
-            echo '</div>';          
+            echo '</div>';
         ?>
-        <?php dynamic_sidebar( 'weather' ); ?>
+        
 		</div>
 
-		
+
 
 		<?php if ( get_header_image() ) : ?>
 		<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php header_image(); ?>" class="header-image" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="" /></a>
